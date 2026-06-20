@@ -5,11 +5,11 @@ import { Menu, X } from "lucide-react";
 import Link from "next/link";
 
 const NAV_LINKS = [
-  { label: "Čo získaš", href: "#co-ziskas" },
-  { label: "Prednášky & Podcasty", href: "#prednasky" },
-  { label: "Eventy", href: "#eventy" },
-  { label: "Sponzori & Zľavy", href: "#sponzori" },
-  { label: "Cenník", href: "#cennik" },
+  { label: "Čo získaš",            href: "/co-ziskas" },
+  { label: "Prednášky & Podcasty", href: "/prednasky-podcasty" },
+  { label: "Eventy",               href: "/akcie" },
+  { label: "Sponzori & Zľavy",     href: "/sponzori" },
+  { label: "Cenník",               href: "/cennik" },
 ];
 
 export function Navbar() {
@@ -76,13 +76,13 @@ export function Navbar() {
           <ul className="flex flex-col gap-0.5">
             {NAV_LINKS.map((link) => (
               <li key={link.href}>
-                <a
+                <Link
                   href={link.href}
                   onClick={close}
                   className="flex items-center px-4 py-3.5 rounded-2xl text-sm font-semibold text-white hover:bg-white/15 transition-colors"
                 >
                   {link.label}
-                </a>
+                </Link>
               </li>
             ))}
           </ul>

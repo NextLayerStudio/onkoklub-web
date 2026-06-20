@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { Navbar } from "@/components/Navbar";
-import { Mic, Headphones, BookOpen, Circle } from "lucide-react";
+import { Footer } from "@/components/Footer";
+import { Mic, Headphones, BookOpen, Circle, Play, User } from "lucide-react";
 
 const TOPICS = [
   "Výživa počas chemoterapie a po nej",
@@ -16,9 +17,16 @@ const TOPICS = [
 ];
 
 const PILLARS = [
-  { icon: Mic,        accent: "#FDA4C7", title: "Živé prednášky",      desc: "Pravidelné online aj offline prednášky s odborníkmi. Môžeš sa pýtať, diskutovať a dostať odpovede priamo od špecialistu." },
+  { icon: Mic,        accent: "#FDA4C7", title: "Živé prednášky",        desc: "Pravidelné online aj offline prednášky s odborníkmi. Môžeš sa pýtať, diskutovať a dostať odpovede priamo od špecialistu." },
   { icon: Headphones, accent: "#6F2380", title: "Podcasty s odborníkmi", desc: "Séria rozhovorov s ľuďmi, ktorí sa onkológii venujú každý deň. Počúvaj kedykoľvek — v práci, pri varení, na prechádzke." },
-  { icon: BookOpen,   accent: "#FDA4C7", title: "Archív pre teba",     desc: "Každá prednáška a každý podcast zostane v knižnici. Ak nestihneš živé vysielanie, nič nestratíš." },
+  { icon: BookOpen,   accent: "#FDA4C7", title: "Archív pre teba",       desc: "Každá prednáška a každý podcast zostane v knižnici. Ak nestihneš živé vysielanie, nič nestratíš." },
+];
+
+const UKAZKY = [
+  { img: "[IMG-27]", title: "Výživa počas chemoterapie",    host: "Nutričná poradkyňa",  dur: "48 min", type: "Prednáška" },
+  { img: "[IMG-03]", title: "Ako zvládnuť úzkosť pri diagnóze", host: "Mirka Malejčíková", dur: "35 min", type: "Podcast" },
+  { img: "[IMG-04]", title: "Fyzioterapia po operácii",     host: "Fyzioterapeut Ondrej", dur: "42 min", type: "Prednáška" },
+  { img: "[IMG-05]", title: "Právne minimum pre pacienta",  host: "JUDr. Marta Kováčová", dur: "55 min", type: "Prednáška" },
 ];
 
 export default function PrenasakyPodcastyPage() {
@@ -26,6 +34,7 @@ export default function PrenasakyPodcastyPage() {
     <main className="min-h-screen bg-[#FFF3F9] font-sans">
       <Navbar />
 
+      {/* Hero */}
       <section className="pt-24 pb-10 px-5">
         <p className="text-[#FDA4C7] text-sm font-bold uppercase tracking-widest mb-3">
           Zadarmo pre všetkých členov
@@ -33,7 +42,7 @@ export default function PrenasakyPodcastyPage() {
         <h1 className="text-[2.4rem] font-black text-[#6F2380] leading-[1.1] mb-5 max-w-xs">
           Odborníci, ktorým môžeš veriť.
         </h1>
-        <p className="text-[#6F2380]/70 text-base leading-relaxed mb-8 max-w-sm">
+        <p className="text-[#6F2380]/70 text-base leading-relaxed mb-8">
           V OnkoKlube pravidelne organizujeme odborné prednášky a nahrávame podcasty
           s lekármi, psychológmi, fyzioterapeutmi a ďalšími špecialistami.
           Živé aj v archíve — všetko máš ako člen zadarmo.
@@ -46,6 +55,17 @@ export default function PrenasakyPodcastyPage() {
         </Link>
       </section>
 
+      {/* Screenshot — pohľad zvnútra */}
+      <section className="px-5 pb-14">
+        <div className="w-full aspect-video rounded-[2rem] bg-[#6F2380]/20 flex flex-col items-center justify-center gap-2">
+          <div className="w-12 h-12 rounded-full bg-[#FDA4C7]/40 flex items-center justify-center">
+            <Play size={20} className="text-[#FDA4C7] ml-0.5" fill="currentColor" />
+          </div>
+          <p className="text-[#6F2380]/30 text-xs font-semibold">[IMG-27] Screenshot prednášky v platforme</p>
+        </div>
+      </section>
+
+      {/* 3 piliere */}
       <section className="px-5 pb-12">
         <div className="flex flex-col gap-3">
           {PILLARS.map((p) => {
@@ -65,7 +85,49 @@ export default function PrenasakyPodcastyPage() {
         </div>
       </section>
 
-      <section className="px-5 pb-16">
+      {/* Ukážky z archívu */}
+      <section className="px-5 pb-14">
+        <h2 className="text-xl font-black text-[#6F2380] mb-5">Ukážka z archívu</h2>
+        <div className="flex flex-col gap-4">
+          {UKAZKY.map((v, i) => (
+            <div key={v.title} className="bg-white rounded-2xl overflow-hidden border border-[#FDA4C7]/15">
+              {/* Thumbnail */}
+              <div
+                className="w-full aspect-video flex items-center justify-center relative"
+                style={{ backgroundColor: i % 2 === 0 ? "#FDA4C7" + "18" : "#6F2380" + "12" }}
+              >
+                <div
+                  className="w-10 h-10 rounded-full flex items-center justify-center"
+                  style={{ backgroundColor: i % 2 === 0 ? "#FDA4C7" : "#6F2380" }}
+                >
+                  <Play size={16} className="text-white ml-0.5" fill="white" />
+                </div>
+                <div className="absolute top-2 left-2 bg-black/20 rounded-full px-2 py-0.5">
+                  <span className="text-white text-[10px] font-bold">{v.type}</span>
+                </div>
+                <div className="absolute bottom-2 right-2 bg-black/30 rounded-full px-2 py-0.5">
+                  <span className="text-white text-[10px]">{v.dur}</span>
+                </div>
+              </div>
+              <div className="p-4">
+                <p className="font-black text-[#6F2380] text-[14px] mb-1">{v.title}</p>
+                <div className="flex items-center gap-2">
+                  <div className="w-5 h-5 rounded-full bg-[#FDA4C7]/20 flex items-center justify-center">
+                    <User size={10} className="text-[#FDA4C7]" />
+                  </div>
+                  <p className="text-[#6F2380]/45 text-[12px]">{v.host}</p>
+                </div>
+              </div>
+            </div>
+          ))}
+        </div>
+        <p className="text-[#6F2380]/40 text-sm text-center mt-5">
+          A desiatky ďalších prednášok a podcastov čakajú v archíve.
+        </p>
+      </section>
+
+      {/* Témy */}
+      <section className="px-5 pb-14">
         <h2 className="text-xl font-black text-[#6F2380] mb-6">Témy prednášok a podcastov</h2>
         <div className="flex flex-col gap-3">
           {TOPICS.map((topic) => (
@@ -77,11 +139,24 @@ export default function PrenasakyPodcastyPage() {
         </div>
       </section>
 
+      {/* Screenshot podcastu */}
+      <section className="px-5 pb-14">
+        <div className="grid grid-cols-2 gap-3">
+          <div className="aspect-square rounded-2xl bg-[#6F2380]/15 flex items-center justify-center">
+            <p className="text-[#6F2380]/25 text-[10px] font-semibold text-center px-2">[IMG] Screenshot podcastu</p>
+          </div>
+          <div className="aspect-square rounded-2xl bg-[#FDA4C7]/15 flex items-center justify-center">
+            <p className="text-[#FDA4C7]/40 text-[10px] font-semibold text-center px-2">[IMG] Prednáška live</p>
+          </div>
+        </div>
+      </section>
+
+      {/* CTA */}
       <section className="px-5 pb-16">
         <div className="rounded-[1.8rem] bg-[#6F2380] p-8 text-center">
           <h2 className="text-2xl font-black text-white mb-3">Prvá prednáška ťa čaká.</h2>
           <p className="text-white/65 text-sm leading-relaxed mb-6">
-            Zaregistruj sa a okamžite získaš prístup k celému archívu prednášok a podcastov.
+            Zaregistruj sa a okamžite získaš prístup k celému archívu.
           </p>
           <Link href="/register" className="inline-block rounded-full bg-[#FDA4C7] text-white font-black text-base px-8 py-4">
             Chcem sa zapojiť
@@ -89,9 +164,7 @@ export default function PrenasakyPodcastyPage() {
         </div>
       </section>
 
-      <footer className="px-5 pb-10 text-center text-[#6F2380]/40 text-xs">
-        <Link href="/" className="underline">← Späť na úvod</Link>
-      </footer>
+      <Footer />
     </main>
   );
 }

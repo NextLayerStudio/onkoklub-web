@@ -113,28 +113,28 @@ export function OnkorumkySection() {
 
       {/* Kategórie fór */}
       <div className="mb-12">
-        <h3 className="text-xl font-black text-[#6F2380] mb-5">29 fór — nájdi si svoje</h3>
-        <div className="flex flex-col gap-3">
+        <h3 className="text-xl font-black text-[#6F2380] mb-7">29 fór — nájdi si svoje</h3>
+        <div className="flex flex-col gap-6">
           {CATEGORIES.map((cat, ci) => (
             <motion.div
               key={cat.label}
-              initial={{ opacity: 0, y: 20 }}
+              initial={{ opacity: 0, y: 16 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: "-30px" }}
               transition={{ duration: 0.45, delay: ci * 0.08 }}
-              className="bg-white rounded-2xl p-4 border border-[#FDA4C7]/15"
             >
               <p
-                className="text-xs font-bold uppercase tracking-wider mb-3"
+                className="text-[11px] font-black uppercase tracking-widest mb-3"
                 style={{ color: cat.accent }}
               >
                 {cat.label}
               </p>
-              <div className="flex flex-wrap gap-1.5">
+              <div className="flex flex-wrap gap-2">
                 {cat.items.map((item) => (
                   <span
                     key={item}
-                    className="bg-[#FFF3F9] text-[#6F2380] text-xs font-semibold px-3 py-1.5 rounded-full border border-[#6F2380]/10"
+                    className="text-[#6F2380] text-sm font-semibold px-4 py-2 rounded-full"
+                    style={{ backgroundColor: cat.accent + "18", border: `1.5px solid ${cat.accent}30` }}
                   >
                     {item}
                   </span>

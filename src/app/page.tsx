@@ -3,6 +3,7 @@ import { Navbar } from "@/components/Navbar";
 import { FeatureSection } from "@/components/FeatureSection";
 import { EventsSection } from "@/components/EventsSection";
 import { OnkorumkySection } from "@/components/OnkorumkySection";
+import { OKkartaSection } from "@/components/OKkartaSection";
 
 export default function Home() {
   return (
@@ -76,6 +77,9 @@ export default function Home() {
 
       {/* ── ONKORUMKY ── */}
       <OnkorumkySection />
+
+      {/* ── OKKARTA & SPONZORI ── */}
+      <OKkartaSection />
     </main>
   );
 }

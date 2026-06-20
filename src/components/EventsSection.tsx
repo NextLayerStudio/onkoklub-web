@@ -94,10 +94,20 @@ export function EventsSection() {
         })}
       </div>
 
-      {/* Ako to funguje */}
+      {/* Ako to funguje — cestička */}
       <div className="mb-14">
-        <h3 className="text-xl font-black text-[#6F2380] mb-6">Ako to funguje</h3>
-        <div className="flex flex-col gap-4">
+        <h3 className="text-xl font-black text-[#6F2380] mb-8">Ako to funguje</h3>
+        <div className="relative pl-5">
+          {/* zvislá čiara */}
+          <motion.div
+            initial={{ scaleY: 0 }}
+            whileInView={{ scaleY: 1 }}
+            viewport={{ once: true, margin: "-60px" }}
+            transition={{ duration: 0.8, ease: "easeInOut" }}
+            style={{ originY: 0 }}
+            className="absolute left-5 top-3 bottom-3 w-px bg-gradient-to-b from-[#FDA4C7] via-[#FDA4C7]/50 to-transparent"
+          />
+
           {[
             { n: "1", title: "Pozri si kalendár", desc: "Všetky nadchádzajúce akcie nájdeš v členskej sekcii filtrované podľa tvojho kraja — žiadne hľadanie, všetko na jednom mieste." },
             { n: "2", title: "Rezervuj si miesto", desc: "Jedným kliknutím — potvrdenie ti príde e-mailom a SMS pripomienka 24 hodín vopred, aby si nezabudol." },
@@ -105,17 +115,18 @@ export function EventsSection() {
           ].map((s, i) => (
             <motion.div
               key={s.n}
-              initial={{ opacity: 0, x: -24 }}
+              initial={{ opacity: 0, x: 16 }}
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true, margin: "-30px" }}
-              transition={{ duration: 0.5, delay: i * 0.1 }}
-              className="flex gap-4 items-start bg-white rounded-2xl p-4 border border-[#FDA4C7]/15"
+              transition={{ duration: 0.45, delay: i * 0.15 }}
+              className="relative flex gap-5 items-start pb-8 last:pb-0"
             >
-              <div className="w-10 h-10 rounded-full bg-[#FDA4C7] flex items-center justify-center shrink-0 mt-0.5">
-                <span className="text-white font-black text-base">{s.n}</span>
+              {/* bod na cestičke */}
+              <div className="relative z-10 w-10 h-10 rounded-full bg-[#FDA4C7] flex items-center justify-center shrink-0 shadow-[0_0_0_4px_#FFF3F9]">
+                <span className="text-white font-black text-base leading-none">{s.n}</span>
               </div>
-              <div>
-                <p className="font-black text-[#6F2380] text-[15px] mb-0.5">{s.title}</p>
+              <div className="pt-1.5">
+                <p className="font-black text-[#6F2380] text-[17px] mb-1">{s.title}</p>
                 <p className="text-[#6F2380]/55 text-[13px] leading-relaxed">{s.desc}</p>
               </div>
             </motion.div>

@@ -2,53 +2,39 @@
 
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
+import { Leaf, Brain, Users, Coffee, MapPin, CheckCircle2 } from "lucide-react";
 
 const ACTIVITIES = [
   {
-    emoji: "🧘",
+    icon: Leaf,
     title: "Joga workshopy",
     desc: "Jemné cvičenie špeciálne pre onkologických pacientov. Bez nároku na kondíciu, v bezpečnom prostredí.",
-    color: "#FDA4C7",
+    accent: "#FDA4C7",
   },
   {
-    emoji: "🧘‍♀️",
+    icon: Brain,
     title: "Mindfulness a meditácia",
-    desc: "Skupinové sedenia zamerané na zvládanie stresu, dýchanie a prítomnosť.",
-    color: "#6F2380",
+    desc: "Skupinové sedenia zamerané na zvládanie stresu, dýchanie a prítomnosť v tele.",
+    accent: "#6F2380",
   },
   {
-    emoji: "🩺",
+    icon: Users,
     title: "Odborné stretnutia",
     desc: "Stretnutia s lekármi, psychológmi a špecialistami. Priestor na otázky a zdieľanie skúseností.",
-    color: "#FDA4C7",
+    accent: "#FDA4C7",
   },
   {
-    emoji: "☕",
+    icon: Coffee,
     title: "Komunity meetupy",
-    desc: "Neformálne stretnutia členov OnkoKlubu — káva, rozhovor, ľudia s podobnou skúsenosťou.",
-    color: "#6F2380",
+    desc: "Neformálne stretnutia členov OnkoKlubu — rozhovor, káva, ľudia s podobnou skúsenosťou.",
+    accent: "#6F2380",
   },
 ];
 
 const REGIONS = [
-  {
-    id: "zapad",
-    name: "Západ",
-    emoji: "🏙️",
-    cities: ["Bratislava", "Nitra", "Trnava"],
-  },
-  {
-    id: "stred",
-    name: "Stred",
-    emoji: "🏔️",
-    cities: ["Žilina", "Banská Bystrica", "Trenčín", "Martin"],
-  },
-  {
-    id: "vychod",
-    name: "Východ",
-    emoji: "🌄",
-    cities: ["Košice", "Prešov", "Poprad"],
-  },
+  { id: "zapad",  name: "Západ",  cities: ["Bratislava", "Nitra", "Trnava"] },
+  { id: "stred",  name: "Stred",  cities: ["Žilina", "B. Bystrica", "Trenčín"] },
+  { id: "vychod", name: "Východ", cities: ["Košice", "Prešov", "Poprad"] },
 ];
 
 export function EventsSection() {
@@ -79,28 +65,33 @@ export function EventsSection() {
       </motion.div>
 
       {/* Typy aktivít */}
-      <div className="flex flex-col gap-4 mb-14">
-        {ACTIVITIES.map((a, i) => (
-          <motion.div
-            key={a.title}
-            initial={{ opacity: 0, x: -30 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true, margin: "-40px" }}
-            transition={{ duration: 0.5, delay: i * 0.08 }}
-            className="flex items-start gap-4 bg-white rounded-2xl p-5 shadow-sm"
-          >
-            <div
-              className="w-12 h-12 rounded-2xl flex items-center justify-center text-2xl shrink-0"
-              style={{ backgroundColor: a.color + "20" }}
+      <div className="flex flex-col gap-3 mb-14">
+        {ACTIVITIES.map((a, i) => {
+          const Icon = a.icon;
+          return (
+            <motion.div
+              key={a.title}
+              initial={{ opacity: 0, x: -24 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true, margin: "-40px" }}
+              transition={{ duration: 0.5, delay: i * 0.08 }}
+              className="flex items-center gap-4 bg-white rounded-2xl p-4 border border-[#FDA4C7]/15"
             >
-              {a.emoji}
-            </div>
-            <div>
-              <h3 className="font-black text-[#6F2380] mb-1">{a.title}</h3>
-              <p className="text-[#6F2380]/60 text-sm leading-relaxed">{a.desc}</p>
-            </div>
-          </motion.div>
-        ))}
+              <div
+                className="w-11 h-11 rounded-xl flex items-center justify-center shrink-0"
+                style={{ backgroundColor: a.accent }}
+              >
+                <Icon size={18} className="text-white" strokeWidth={2} />
+              </div>
+              <div>
+                <h3 className="font-black text-[#6F2380] text-[15px] leading-tight mb-0.5">
+                  {a.title}
+                </h3>
+                <p className="text-[#6F2380]/55 text-[13px] leading-relaxed">{a.desc}</p>
+              </div>
+            </motion.div>
+          );
+        })}
       </div>
 
       {/* Kontaktný formulár */}
@@ -125,61 +116,67 @@ export function EventsSection() {
               key="thanks"
               initial={{ opacity: 0, scale: 0.9 }}
               animate={{ opacity: 1, scale: 1 }}
-              className="text-center py-6"
+              className="flex flex-col items-center text-center py-6 gap-4"
             >
-              <p className="text-4xl mb-3">🎉</p>
-              <p className="text-white font-black text-xl mb-2">Ďakujeme!</p>
-              <p className="text-white/65 text-sm">Dáme ti vedieť, keď bude niečo vo tvojom kraji.</p>
+              <div className="w-16 h-16 rounded-full bg-[#FDA4C7] flex items-center justify-center">
+                <CheckCircle2 size={32} className="text-white" />
+              </div>
+              <p className="text-white font-black text-xl">Ďakujeme!</p>
+              <p className="text-white/65 text-sm">
+                Dáme ti vedieť, keď bude niečo vo tvojom kraji.
+              </p>
             </motion.div>
           ) : (
             <motion.form
               key="form"
               onSubmit={(e) => { e.preventDefault(); setSubmitted(true); }}
-              className="flex flex-col gap-4"
+              className="flex flex-col gap-5"
             >
-              {/* Výber oblasti — mapa */}
+              {/* Výber oblasti */}
               <div>
-                <p className="text-white/60 text-xs font-bold uppercase tracking-wider mb-3">
+                <p className="text-white/55 text-xs font-bold uppercase tracking-wider mb-3">
                   Kde sa nachádzaš?
                 </p>
                 <div className="grid grid-cols-3 gap-2">
                   {REGIONS.map((region) => {
-                    const isSelected = selectedRegion === region.id;
+                    const active = selectedRegion === region.id;
                     return (
                       <button
                         key={region.id}
                         type="button"
                         onClick={() => setSelectedRegion(region.id)}
-                        className="flex flex-col items-center py-4 px-2 rounded-2xl border-2 transition-all duration-200"
+                        className="flex flex-col items-center py-4 px-2 rounded-2xl border-2 transition-all duration-200 gap-1"
                         style={{
-                          borderColor: isSelected ? "#FDA4C7" : "rgba(255,255,255,0.15)",
-                          backgroundColor: isSelected ? "#FDA4C7" : "rgba(255,255,255,0.08)",
+                          borderColor: active ? "#FDA4C7" : "rgba(255,255,255,0.12)",
+                          backgroundColor: active ? "#FDA4C7" : "rgba(255,255,255,0.07)",
                         }}
                       >
-                        <span className="text-xl mb-1">{region.emoji}</span>
+                        <MapPin
+                          size={16}
+                          className="shrink-0"
+                          style={{ color: active ? "white" : "rgba(255,255,255,0.5)" }}
+                          strokeWidth={2.5}
+                        />
                         <span
                           className="text-sm font-black"
-                          style={{ color: isSelected ? "white" : "rgba(255,255,255,0.85)" }}
+                          style={{ color: active ? "white" : "rgba(255,255,255,0.8)" }}
                         >
                           {region.name}
                         </span>
-                        <div className="mt-2 flex flex-col items-center gap-0.5">
-                          {region.cities.slice(0, 2).map((city) => (
-                            <span
-                              key={city}
-                              className="text-[10px] leading-tight"
-                              style={{ color: isSelected ? "white" : "rgba(255,255,255,0.45)" }}
-                            >
-                              {city}
-                            </span>
-                          ))}
-                        </div>
+                        {region.cities.slice(0, 2).map((city) => (
+                          <span
+                            key={city}
+                            className="text-[10px] leading-tight"
+                            style={{ color: active ? "rgba(255,255,255,0.8)" : "rgba(255,255,255,0.35)" }}
+                          >
+                            {city}
+                          </span>
+                        ))}
                       </button>
                     );
                   })}
                 </div>
-                {/* Slovakia "map" dekorácia — linka ktorá vizuálne spája regióny */}
-                <div className="flex items-center mt-2 px-1">
+                <div className="flex items-center mt-2.5 px-1">
                   <div className="flex-1 h-px bg-white/10" />
                   <span className="text-white/20 text-[10px] px-2">Slovensko</span>
                   <div className="flex-1 h-px bg-white/10" />
@@ -188,39 +185,38 @@ export function EventsSection() {
 
               {/* Meno */}
               <div>
-                <label className="text-white/60 text-xs font-bold uppercase tracking-wider block mb-2">
+                <label className="text-white/55 text-xs font-bold uppercase tracking-wider block mb-2">
                   Meno
                 </label>
                 <input
                   type="text"
                   placeholder="Tvoje meno"
                   required
-                  className="w-full rounded-xl bg-white/10 border border-white/20 text-white placeholder-white/35 px-4 py-3.5 text-sm outline-none focus:border-[#FDA4C7] transition-colors"
+                  className="w-full rounded-xl bg-white/10 border border-white/15 text-white placeholder-white/30 px-4 py-3.5 text-sm outline-none focus:border-[#FDA4C7] transition-colors"
                 />
               </div>
 
               {/* Email */}
               <div>
-                <label className="text-white/60 text-xs font-bold uppercase tracking-wider block mb-2">
+                <label className="text-white/55 text-xs font-bold uppercase tracking-wider block mb-2">
                   Email
                 </label>
                 <input
                   type="email"
                   placeholder="tvoj@email.sk"
                   required
-                  className="w-full rounded-xl bg-white/10 border border-white/20 text-white placeholder-white/35 px-4 py-3.5 text-sm outline-none focus:border-[#FDA4C7] transition-colors"
+                  className="w-full rounded-xl bg-white/10 border border-white/15 text-white placeholder-white/30 px-4 py-3.5 text-sm outline-none focus:border-[#FDA4C7] transition-colors"
                 />
               </div>
 
-              {/* Submit */}
               <button
                 type="submit"
-                className="w-full rounded-full bg-[#FDA4C7] text-white font-black text-base py-4 mt-2 active:scale-[0.98] transition-transform"
+                className="w-full rounded-full bg-[#FDA4C7] text-white font-black text-base py-4 mt-1 active:scale-[0.98] transition-transform"
               >
                 Chcem byť informovaný o akciách
               </button>
 
-              <p className="text-white/30 text-[11px] text-center leading-relaxed">
+              <p className="text-white/25 text-[11px] text-center leading-relaxed">
                 Žiadny spam. Odhlásenie kedykoľvek jedným klikom.
               </p>
             </motion.form>

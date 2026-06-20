@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { Navbar } from "@/components/Navbar";
+import { Mic, Headphones, BookOpen, Circle } from "lucide-react";
 
 const TOPICS = [
   "Výživa počas chemoterapie a po nej",
@@ -15,21 +16,9 @@ const TOPICS = [
 ];
 
 const PILLARS = [
-  {
-    emoji: "🎙️",
-    title: "Živé prednášky",
-    desc: "Pravidelné online aj offline prednášky s odborníkmi. Môžeš sa pýtať, diskutovať a dostať odpovede priamo od špecialistu. Termíny vždy vopred v kalendári.",
-  },
-  {
-    emoji: "🎧",
-    title: "Podcasty s odborníkmi",
-    desc: "Séria rozhovorov s ľuďmi, ktorí sa onkológii venujú každý deň. Počúvaj kedykoľvek — v práci, pri varení, na prechádzke.",
-  },
-  {
-    emoji: "📚",
-    title: "Archív pre teba",
-    desc: "Každá prednáška a každý podcast zostane v knižnici. Ak nestihneš živé vysielanie, nič nestratíš — archív je dostupný kedykoľvek.",
-  },
+  { icon: Mic,        accent: "#FDA4C7", title: "Živé prednášky",      desc: "Pravidelné online aj offline prednášky s odborníkmi. Môžeš sa pýtať, diskutovať a dostať odpovede priamo od špecialistu." },
+  { icon: Headphones, accent: "#6F2380", title: "Podcasty s odborníkmi", desc: "Séria rozhovorov s ľuďmi, ktorí sa onkológii venujú každý deň. Počúvaj kedykoľvek — v práci, pri varení, na prechádzke." },
+  { icon: BookOpen,   accent: "#FDA4C7", title: "Archív pre teba",     desc: "Každá prednáška a každý podcast zostane v knižnici. Ak nestihneš živé vysielanie, nič nestratíš." },
 ];
 
 export default function PrenasakyPodcastyPage() {
@@ -57,43 +46,44 @@ export default function PrenasakyPodcastyPage() {
         </Link>
       </section>
 
-      {/* 3 piliere */}
       <section className="px-5 pb-12">
-        <div className="flex flex-col gap-4">
-          {PILLARS.map((p) => (
-            <div key={p.title} className="bg-white rounded-2xl p-5 shadow-sm">
-              <p className="text-2xl mb-2">{p.emoji}</p>
-              <h3 className="font-black text-[#6F2380] mb-1">{p.title}</h3>
-              <p className="text-[#6F2380]/60 text-sm leading-relaxed">{p.desc}</p>
-            </div>
-          ))}
+        <div className="flex flex-col gap-3">
+          {PILLARS.map((p) => {
+            const Icon = p.icon;
+            return (
+              <div key={p.title} className="flex items-center gap-4 bg-white rounded-2xl p-4 border border-[#FDA4C7]/15">
+                <div className="w-11 h-11 rounded-xl flex items-center justify-center shrink-0" style={{ backgroundColor: p.accent }}>
+                  <Icon size={18} className="text-white" strokeWidth={2} />
+                </div>
+                <div>
+                  <h3 className="font-black text-[#6F2380] text-[15px] leading-tight mb-0.5">{p.title}</h3>
+                  <p className="text-[#6F2380]/55 text-[13px] leading-relaxed">{p.desc}</p>
+                </div>
+              </div>
+            );
+          })}
         </div>
       </section>
 
-      {/* Témy */}
       <section className="px-5 pb-16">
         <h2 className="text-xl font-black text-[#6F2380] mb-6">Témy prednášok a podcastov</h2>
         <div className="flex flex-col gap-3">
           {TOPICS.map((topic) => (
             <div key={topic} className="flex items-center gap-3">
-              <div className="w-2 h-2 rounded-full bg-[#FDA4C7] shrink-0" />
+              <Circle size={7} className="text-[#FDA4C7] shrink-0 fill-[#FDA4C7]" />
               <p className="text-[#6F2380]/75 text-sm">{topic}</p>
             </div>
           ))}
         </div>
       </section>
 
-      {/* CTA */}
       <section className="px-5 pb-16">
         <div className="rounded-[1.8rem] bg-[#6F2380] p-8 text-center">
           <h2 className="text-2xl font-black text-white mb-3">Prvá prednáška ťa čaká.</h2>
-          <p className="text-white/70 text-sm leading-relaxed mb-6">
+          <p className="text-white/65 text-sm leading-relaxed mb-6">
             Zaregistruj sa a okamžite získaš prístup k celému archívu prednášok a podcastov.
           </p>
-          <Link
-            href="/register"
-            className="inline-block rounded-full bg-[#FDA4C7] text-white font-black text-base px-8 py-4"
-          >
+          <Link href="/register" className="inline-block rounded-full bg-[#FDA4C7] text-white font-black text-base px-8 py-4">
             Chcem sa zapojiť
           </Link>
         </div>

@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { Navbar } from "@/components/Navbar";
+import { Lock, Circle } from "lucide-react";
 
 const CATEGORIES = [
   {
@@ -8,7 +9,7 @@ const CATEGORIES = [
   },
   {
     label: "Podľa témy",
-    items: ["Psychická podpora", "Výživa a pohyb", "Nežiaduce účinky liečby", "Sociálne dávky", "Intimita & sexualita", "Návrat do práce"],
+    items: ["Psychická podpora", "Výživa a pohyb", "Nežiaduce účinky liečby", "Sociálne dávky", "Intimita a sexualita", "Návrat do práce"],
   },
   {
     label: "Podľa liečby",
@@ -17,9 +18,9 @@ const CATEGORIES = [
 ];
 
 const SAMPLE_POSTS = [
-  { forum: "Psychická podpora", time: "pred 2 hodinami", replies: 8, text: "Mám pocit, že všetci okolo mňa hovoria, aby som bola pozitívna — a ja neviem, ako to mám robiť. Je to v poriadku?", anon: true },
-  { forum: "Nežiaduce účinky liečby", time: "pred 5 hodinami", replies: 12, text: "Po druhej chémii mi vypadli vlasy. Neviete, kde zohnať dobrú parochňu, ktorú čiastočne hradí poisťovňa?", anon: false },
-  { forum: "Rakovina prsníka", time: "včera", replies: 24, text: "Práve som sa dozvedela výsledky. Neviem čo ďalej. Môžem sa tu niekoho opýtať na skúsenosti s liečbou v UN Bratislava?", anon: true },
+  { forum: "Psychická podpora",        time: "pred 2 hodinami", replies: 8,  text: "Mám pocit, že všetci okolo mňa hovoria, aby som bola pozitívna — a ja neviem, ako to mám robiť. Je to v poriadku?", anon: true },
+  { forum: "Nežiaduce účinky liečby",  time: "pred 5 hodinami", replies: 12, text: "Po druhej chémii mi vypadli vlasy. Neviete, kde zohnať dobrú parochňu, ktorú čiastočne hradí poisťovňa?",       anon: false },
+  { forum: "Rakovina prsníka",         time: "včera",           replies: 24, text: "Práve som sa dozvedela výsledky. Neviem čo ďalej. Môžem sa tu niekoho opýtať na skúsenosti s liečbou v UN Bratislava?", anon: true },
 ];
 
 export default function OnkorumkyPage() {
@@ -37,27 +38,26 @@ export default function OnkorumkyPage() {
         <p className="text-[#6F2380]/70 text-base leading-relaxed mb-8 max-w-sm">
           V Onkorumky fórach sa každý deň stretávajú ľudia, ktorí prešli alebo prechádzajú
           tým, čím si prechádzaš ty. Môžeš písať pod vlastným menom alebo anonymne —
-          vždy v bezpečnom, moderovanom prostredí. 29 tematických fór pre rôzne témy,
-          diagnózy a typy liečby.
+          vždy v bezpečnom, moderovanom prostredí. 29 tematických fór.
         </p>
-        <Link
-          href="/register"
-          className="block w-full rounded-full bg-[#FDA4C7] text-white text-xl font-black py-5 text-center"
-        >
+        <Link href="/register" className="block w-full rounded-full bg-[#FDA4C7] text-white text-xl font-black py-5 text-center">
           Vstúpiť do komunity
         </Link>
       </section>
 
       {/* Anonymita */}
       <section className="px-5 pb-12">
-        <div className="bg-[#6F2380]/8 rounded-2xl p-5">
-          <p className="text-2xl mb-2">🔒</p>
-          <h3 className="font-black text-[#6F2380] mb-2">Anonymita je na tebe</h3>
-          <p className="text-[#6F2380]/65 text-sm leading-relaxed">
-            Pri každom príspevku si vyberieš — písať pod menom alebo anonymne.
-            Tvoje skutočné meno nikdy neuvidí nikto iný okrem administrátora.
-            Fóra sú moderované a bezpečné.
-          </p>
+        <div className="flex items-center gap-4 bg-white rounded-2xl p-4 border border-[#FDA4C7]/15">
+          <div className="w-11 h-11 rounded-xl bg-[#6F2380] flex items-center justify-center shrink-0">
+            <Lock size={18} className="text-white" strokeWidth={2} />
+          </div>
+          <div>
+            <h3 className="font-black text-[#6F2380] text-[15px] leading-tight mb-0.5">Anonymita je na tebe</h3>
+            <p className="text-[#6F2380]/55 text-[13px] leading-relaxed">
+              Pri každom príspevku si vyberieš — písať pod menom alebo anonymne.
+              Tvoje skutočné meno nikdy neuvidí nikto iný okrem administrátora.
+            </p>
+          </div>
         </div>
       </section>
 
@@ -66,7 +66,7 @@ export default function OnkorumkyPage() {
         <h2 className="text-xl font-black text-[#6F2380] mb-6">29 fór — nájdi si svoje</h2>
         <div className="flex flex-col gap-4">
           {CATEGORIES.map((cat) => (
-            <div key={cat.label} className="bg-white rounded-2xl p-5 shadow-sm">
+            <div key={cat.label} className="bg-white rounded-2xl p-5 border border-[#FDA4C7]/15">
               <p className="text-[#FDA4C7] text-xs font-bold uppercase tracking-wider mb-3">{cat.label}</p>
               <div className="flex flex-wrap gap-2">
                 {cat.items.map((item) => (
@@ -83,10 +83,10 @@ export default function OnkorumkyPage() {
       {/* Ukážkové príspevky */}
       <section className="px-5 pb-16">
         <h2 className="text-xl font-black text-[#6F2380] mb-2">Záblesk z komunity</h2>
-        <p className="text-[#6F2380]/50 text-xs mb-6">Príspevky vidíš len ty — pre ostatných sú dostupné po prihlásení.</p>
-        <div className="flex flex-col gap-4">
+        <p className="text-[#6F2380]/45 text-xs mb-6">Príspevky vidíš celé len po prihlásení.</p>
+        <div className="flex flex-col gap-3">
           {SAMPLE_POSTS.map((post, i) => (
-            <div key={i} className="bg-white rounded-2xl p-5 shadow-sm">
+            <div key={i} className="bg-white rounded-2xl p-5 border border-[#FDA4C7]/15">
               <div className="flex items-center justify-between mb-3">
                 <span className="text-[#FDA4C7] text-xs font-bold">{post.forum}</span>
                 <span className="text-[#6F2380]/30 text-xs">{post.time}</span>
@@ -94,25 +94,24 @@ export default function OnkorumkyPage() {
               <p className="text-[#6F2380]/75 text-sm leading-relaxed mb-3 italic">
                 „{post.text}"
               </p>
-              <p className="text-[#6F2380]/35 text-xs">
-                {post.anon ? "Anonymný člen" : "Člen"} · {post.replies} odpovedí · len pre členov
-              </p>
+              <div className="flex items-center gap-2">
+                <Circle size={5} className="text-[#FDA4C7] fill-[#FDA4C7]" />
+                <p className="text-[#6F2380]/35 text-xs">
+                  {post.anon ? "Anonymný člen" : "Člen"} · {post.replies} odpovedí · len pre členov
+                </p>
+              </div>
             </div>
           ))}
         </div>
       </section>
 
-      {/* CTA */}
       <section className="px-5 pb-16">
         <div className="rounded-[1.8rem] bg-[#6F2380] p-8 text-center">
           <h2 className="text-2xl font-black text-white mb-3">Nie si v tom sám.</h2>
-          <p className="text-white/70 text-sm leading-relaxed mb-6">
-            Zaregistruj sa a okamžite získaš prístup ku všetkým 29 fóram. Môžeš sa aj len čítať.
+          <p className="text-white/65 text-sm leading-relaxed mb-6">
+            Zaregistruj sa a okamžite získaš prístup ku všetkým 29 fóram. Môžeš aj len čítať.
           </p>
-          <Link
-            href="/register"
-            className="inline-block rounded-full bg-[#FDA4C7] text-white font-black text-base px-8 py-4"
-          >
+          <Link href="/register" className="inline-block rounded-full bg-[#FDA4C7] text-white font-black text-base px-8 py-4">
             Chcem sa zapojiť
           </Link>
         </div>

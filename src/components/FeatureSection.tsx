@@ -1,6 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
+import Link from "next/link";
 
 /* ─── dáta ─── */
 
@@ -9,21 +10,25 @@ const FEATURES = [
     id: "library" as const,
     title: "Kontent knižnica",
     desc: "Stovky videí od overených odborníkov — joga, mindfulness, výživa, psychika. Pozri si ich kedykoľvek, odkiaľkoľvek, vo vlastnom tempe.",
+    href: "/kontent-kniznica",
   },
   {
     id: "podcasts" as const,
     title: "Odborné prednášky a podcasty",
     desc: "Pravidelné prednášky s lekármi, psychológmi a fyzioterapeutmi. Živé aj v archíve — zadarmo pre všetkých členov OnkoKlubu.",
+    href: "/prednasky-podcasty",
   },
   {
     id: "events" as const,
     title: "Akcie po celom Slovensku",
     desc: "Workshopy, stretnutia a joga v Bratislave, Nitre, Košiciach aj Poprade. Rezervácia miesta jedným kliknutím priamo z platformy.",
+    href: "/akcie",
   },
   {
     id: "community" as const,
     title: "Onkorumky",
     desc: "29 tematických fór kde môžeš písať anonymne alebo pod vlastným menom. Komunita, ktorá ťa pochopí bez dlhého vysvetľovania.",
+    href: "/onkorumky",
   },
 ];
 
@@ -209,9 +214,15 @@ export function FeatureSection() {
               <Icon />
               <div>
                 <h3 className="text-xl font-black text-[#6F2380] mb-2">{feature.title}</h3>
-                <p className="text-[#6F2380]/60 text-[15px] leading-relaxed max-w-[280px] mx-auto">
+                <p className="text-[#6F2380]/60 text-[15px] leading-relaxed max-w-[280px] mx-auto mb-5">
                   {feature.desc}
                 </p>
+                <Link
+                  href={feature.href}
+                  className="inline-block rounded-full border-2 border-[#FDA4C7] text-[#FDA4C7] text-sm font-bold px-6 py-2.5 hover:bg-[#FDA4C7] hover:text-white transition-colors"
+                >
+                  Čítať viac
+                </Link>
               </div>
             </motion.div>
           );

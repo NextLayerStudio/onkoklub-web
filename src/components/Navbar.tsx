@@ -27,14 +27,14 @@ export function Navbar() {
         <div className="flex items-center gap-2">
           <Link
             href="/login"
-            className="rounded-full bg-[#FDA4C7] text-white text-sm font-bold px-4 py-2 leading-none"
+            className="rounded-full bg-[#FDA4C7] text-white text-base font-black px-6 py-3 leading-none"
           >
             Prihlásiť sa
           </Link>
           <button
             onClick={() => setOpen(true)}
             aria-label="Otvoriť menu"
-            className="w-10 h-10 flex items-center justify-center rounded-full bg-[#FDA4C7] text-white"
+            className="w-12 h-12 flex items-center justify-center rounded-full bg-[#FDA4C7] text-white"
           >
             <Menu size={18} />
           </button>

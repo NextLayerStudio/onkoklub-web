@@ -21,7 +21,7 @@ export default function Home() {
 
         <Link
           href="/register"
-          className="inline-block rounded-full bg-[#FDA4C7] text-white text-base font-bold px-7 py-3.5 leading-none"
+          className="block w-full rounded-full bg-[#FDA4C7] text-white text-xl font-black py-5 text-center"
         >
           Chcem sa zapojiť
         </Link>

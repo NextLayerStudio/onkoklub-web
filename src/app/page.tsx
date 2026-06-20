@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { Navbar } from "@/components/Navbar";
+import { FeatureSection } from "@/components/FeatureSection";
 
 export default function Home() {
   return (
@@ -33,7 +34,6 @@ export default function Home() {
 
       {/* ── NIE SI V TOM SÁM ── */}
       <section className="px-5 pb-16">
-        {/* Nadpis + podnadpis */}
         <h2 className="text-[2.2rem] font-black text-[#6F2380] leading-[1.1] mb-4">
           Nie si v tom sám.
         </h2>
@@ -47,44 +47,27 @@ export default function Home() {
 
         {/* Dva prelínajúce sa štvorčeky */}
         <div className="relative mb-12" style={{ height: "290px" }}>
-          {/* Karta 1 — ľavá, vyššie, naklopená doľava */}
           <div
             className="absolute top-0 left-0 w-[70%] rounded-[1.6rem] bg-[#6F2380]/25"
             style={{ aspectRatio: "4/3", transform: "rotate(-8deg)", transformOrigin: "top left" }}
           />
-          {/* Karta 2 — pravá, nižšie, naklopená doprava */}
           <div
             className="absolute bottom-0 right-0 w-[70%] rounded-[1.6rem] bg-[#6F2380]/25"
             style={{ aspectRatio: "4/3", transform: "rotate(6deg)", transformOrigin: "bottom right" }}
           />
         </div>
 
-        {/* Zvyšný text sekcie */}
-        <p className="text-[#6F2380]/70 text-base leading-relaxed mb-8">
+        <p className="text-[#6F2380]/70 text-base leading-relaxed">
           OnkoKlub je uzavretá platforma, ktorú vytvorilo občianske združenie{" "}
           <span className="font-bold text-[#6F2380]">NIE RAKOVINE, o. z.</span> —
           organizácia, ktorá sa od svojho vzniku venuje podpore onkologických pacientov
           na Slovensku. Všetko, čo v OnkoKlube nájdeš, je overené, bezpečné a vytvorené
           s ohľadom na teba.
         </p>
-
-        {/* 3 ikonové body */}
-        <ul className="flex flex-col gap-4">
-          {[
-            { icon: "🔒", title: "Uzavretá komunita", desc: "Prístup iba pre registrovaných členov" },
-            { icon: "✅", title: "Overený obsah", desc: "Všetko tvoria odborníci, nie anonymi" },
-            { icon: "🇸🇰", title: "Slovenská komunita", desc: "Ľudia z tvojho okolia, eventy vo tvojom kraji" },
-          ].map(({ icon, title, desc }) => (
-            <li key={title} className="flex items-start gap-3">
-              <span className="text-xl leading-none mt-0.5">{icon}</span>
-              <div>
-                <p className="font-bold text-[#6F2380] text-sm">{title}</p>
-                <p className="text-[#6F2380]/60 text-sm">{desc}</p>
-              </div>
-            </li>
-          ))}
-        </ul>
       </section>
+
+      {/* ── VŠETKO ČO POTREBUJEŠ ── */}
+      <FeatureSection />
     </main>
   );
 }

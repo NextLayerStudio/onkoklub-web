@@ -2,6 +2,7 @@ import Link from "next/link";
 import { Navbar } from "@/components/Navbar";
 import { FeatureSection } from "@/components/FeatureSection";
 import { EventsSection } from "@/components/EventsSection";
+import { OnkorumkySection } from "@/components/OnkorumkySection";
 
 export default function Home() {
   return (
@@ -72,6 +73,9 @@ export default function Home() {
 
       {/* ── STRETNI SA S NAMI ── */}
       <EventsSection />
+
+      {/* ── ONKORUMKY ── */}
+      <OnkorumkySection />
     </main>
   );
 }

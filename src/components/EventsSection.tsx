@@ -94,6 +94,35 @@ export function EventsSection() {
         })}
       </div>
 
+      {/* Ako to funguje */}
+      <div className="mb-14">
+        <h3 className="text-xl font-black text-[#6F2380] mb-6">Ako to funguje</h3>
+        <div className="flex flex-col gap-4">
+          {[
+            { n: "1", title: "Pozri si kalendár", desc: "Všetky nadchádzajúce akcie nájdeš v členskej sekcii filtrované podľa tvojho kraja — žiadne hľadanie, všetko na jednom mieste." },
+            { n: "2", title: "Rezervuj si miesto", desc: "Jedným kliknutím — potvrdenie ti príde e-mailom a SMS pripomienka 24 hodín vopred, aby si nezabudol." },
+            { n: "3", title: "Príď a spoznaj komunitu", desc: "Akcie sú pre členov zadarmo alebo so zvýhodnenou cenou. Kapacita na každom stretnutí je obmedzená, preto rezervuj vopred." },
+          ].map((s, i) => (
+            <motion.div
+              key={s.n}
+              initial={{ opacity: 0, x: -24 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true, margin: "-30px" }}
+              transition={{ duration: 0.5, delay: i * 0.1 }}
+              className="flex gap-4 items-start bg-white rounded-2xl p-4 border border-[#FDA4C7]/15"
+            >
+              <div className="w-10 h-10 rounded-full bg-[#FDA4C7] flex items-center justify-center shrink-0 mt-0.5">
+                <span className="text-white font-black text-base">{s.n}</span>
+              </div>
+              <div>
+                <p className="font-black text-[#6F2380] text-[15px] mb-0.5">{s.title}</p>
+                <p className="text-[#6F2380]/55 text-[13px] leading-relaxed">{s.desc}</p>
+              </div>
+            </motion.div>
+          ))}
+        </div>
+      </div>
+
       {/* Kontaktný formulár */}
       <motion.div
         initial={{ opacity: 0, y: 40 }}

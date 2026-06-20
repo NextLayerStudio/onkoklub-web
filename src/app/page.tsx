@@ -28,7 +28,7 @@ export default function Home() {
 
       {/* ── HLAVNÉ VIDEO / FOTO ── */}
       <section className="px-5 pb-12">
-        <div className="w-full aspect-[4/3] rounded-[2rem] bg-[#6F2380]/25" />
+        <div className="w-full aspect-[4/3] rounded-[2rem] bg-[#6F2380]/25 -rotate-3" />
       </section>
     </main>
   );

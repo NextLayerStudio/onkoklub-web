@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { Navbar } from "@/components/Navbar";
 import { FeatureSection } from "@/components/FeatureSection";
+import { EventsSection } from "@/components/EventsSection";
 
 export default function Home() {
   return (
@@ -68,6 +69,9 @@ export default function Home() {
 
       {/* ── VŠETKO ČO POTREBUJEŠ ── */}
       <FeatureSection />
+
+      {/* ── STRETNI SA S NAMI ── */}
+      <EventsSection />
     </main>
   );
 }

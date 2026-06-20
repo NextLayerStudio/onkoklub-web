@@ -1,9 +1,17 @@
 import Link from "next/link";
 import { Navbar } from "@/components/Navbar";
 import { FeatureSection } from "@/components/FeatureSection";
+import { VideokniznicaSection } from "@/components/VideokniznicaSection";
 import { EventsSection } from "@/components/EventsSection";
 import { OnkorumkySection } from "@/components/OnkorumkySection";
+import { LektoriSection } from "@/components/LektoriSection";
 import { OKkartaSection } from "@/components/OKkartaSection";
+import { SocialnyKompassSection } from "@/components/SocialnyKompassSection";
+import { CennikSection } from "@/components/CennikSection";
+import { TestimonialsSection } from "@/components/TestimonialsSection";
+import { FAQSection } from "@/components/FAQSection";
+import { FinalCTA } from "@/components/FinalCTA";
+import { Footer } from "@/components/Footer";
 
 export default function Home() {
   return (
@@ -24,14 +32,19 @@ export default function Home() {
 
         <Link
           href="/register"
-          className="block w-full rounded-full bg-[#FDA4C7] text-white text-xl font-black py-5 text-center"
+          className="block w-full rounded-full bg-[#FDA4C7] text-white text-xl font-black py-5 text-center mb-4"
         >
-          Chcem sa zapojiť
+          Chcem sa pripojiť
         </Link>
+
+        <p className="text-[#6F2380]/40 text-[13px] text-center">
+          Členstvo od 5 € / mesiac · prvý mesiac môžeš vyskúšať a kedykoľvek odísť.
+        </p>
       </section>
 
-      {/* ── HLAVNÉ VIDEO / FOTO ── */}
+      {/* ── HLAVNÉ FOTO / VIDEO ── */}
       <section className="px-5 pb-16">
+        {/* [IMG-01] Hero foto alebo video — dodá NIE RAKOVINE */}
         <div className="w-full aspect-[4/3] rounded-[2rem] bg-[#6F2380]/25 -rotate-3" />
       </section>
 
@@ -48,7 +61,7 @@ export default function Home() {
           zvládanie stresu až po orientáciu v sociálnom systéme.
         </p>
 
-        {/* Dva prelínajúce sa štvorčeky */}
+        {/* Dva prelínajúce sa štvorčeky — [IMG] */}
         <div className="relative mb-12" style={{ height: "290px" }}>
           <div
             className="absolute top-0 left-0 w-[70%] rounded-[1.6rem] bg-[#6F2380]/25"
@@ -72,14 +85,38 @@ export default function Home() {
       {/* ── VŠETKO ČO POTREBUJEŠ ── */}
       <FeatureSection />
 
+      {/* ── VIDEOKNIŽNICA — UKÁŽKA ── */}
+      <VideokniznicaSection />
+
       {/* ── STRETNI SA S NAMI ── */}
       <EventsSection />
 
       {/* ── ONKORUMKY ── */}
       <OnkorumkySection />
 
+      {/* ── LEKTORI ── */}
+      <LektoriSection />
+
       {/* ── OKKARTA & SPONZORI ── */}
       <OKkartaSection />
+
+      {/* ── SOCIÁLNY KOMPAS ── */}
+      <SocialnyKompassSection />
+
+      {/* ── CENNÍK ── */}
+      <CennikSection />
+
+      {/* ── PRÍBEHY ČLENOV ── */}
+      <TestimonialsSection />
+
+      {/* ── FAQ ── */}
+      <FAQSection />
+
+      {/* ── ZÁVEREČNÉ CTA ── */}
+      <FinalCTA />
+
+      {/* ── FOOTER ── */}
+      <Footer />
     </main>
   );
 }

@@ -12,6 +12,10 @@
   box-sizing: border-box;
 }
 
+html {
+  scroll-behavior: smooth;
+}
+
 html,
 body {
   height: 100%;
@@ -19,6 +23,16 @@ body {
   color: #6F2380;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  overflow-x: hidden;
+}
+
+/* Globálny tap efekt na tlačidlách a linkoch */
+a, button {
+  transition: transform 0.15s ease, opacity 0.15s ease;
+}
+a:active, button:active {
+  transform: scale(0.96);
+  opacity: 0.9;
 }
 
 .scrollbar-none {

@@ -13,9 +13,19 @@ export function FinalCTA() {
         transition={{ duration: 0.65 }}
         className="rounded-[2rem] bg-[#6F2380] px-6 py-12 text-center relative overflow-hidden"
       >
-        {/* dekorácia */}
-        <div className="absolute -top-14 -right-14 w-48 h-48 rounded-full bg-white/5" />
-        <div className="absolute -bottom-10 -left-10 w-40 h-40 rounded-full bg-[#FDA4C7]/10" />
+        {/* dekoratívne animované blobky */}
+        <motion.div
+          aria-hidden
+          animate={{ scale: [1, 1.15, 1], opacity: [0.05, 0.1, 0.05] }}
+          transition={{ duration: 6, repeat: Infinity, ease: "easeInOut" }}
+          className="absolute -top-14 -right-14 w-56 h-56 rounded-full bg-white"
+        />
+        <motion.div
+          aria-hidden
+          animate={{ scale: [1, 1.2, 1], opacity: [0.1, 0.18, 0.1] }}
+          transition={{ duration: 8, repeat: Infinity, ease: "easeInOut", delay: 2 }}
+          className="absolute -bottom-10 -left-10 w-44 h-44 rounded-full bg-[#FDA4C7]"
+        />
 
         <div className="relative z-10">
           <h2 className="text-[2.4rem] font-black text-white leading-[1.1] mb-4">

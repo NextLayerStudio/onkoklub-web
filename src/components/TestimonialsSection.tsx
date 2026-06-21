@@ -50,9 +50,10 @@ export function TestimonialsSection() {
             key={c.meno}
             initial={{ opacity: 0, y: 24 }}
             whileInView={{ opacity: 1, y: 0 }}
+            whileHover={{ y: -5, boxShadow: "0 16px 40px rgba(111,35,128,0.1)" }}
             viewport={{ once: true, margin: "-30px" }}
             transition={{ duration: 0.5, delay: i * 0.1 }}
-            className="rounded-[1.8rem] bg-white border border-[#FDA4C7]/15 p-6"
+            className="rounded-[1.8rem] bg-white border border-[#FDA4C7]/15 p-6 cursor-default"
           >
             <div
               className="w-10 h-10 rounded-full flex items-center justify-center mb-4"

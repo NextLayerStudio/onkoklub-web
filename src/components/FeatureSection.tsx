@@ -208,6 +208,7 @@ export function FeatureSection() {
               className="flex flex-col items-center text-center gap-5"
               initial={{ opacity: 0, y: 50 }}
               whileInView={{ opacity: 1, y: 0 }}
+              whileHover={{ y: -4 }}
               viewport={{ once: true, margin: "-60px" }}
               transition={{ duration: 0.65, delay: i * 0.08, ease: "easeOut" }}
             >

@@ -26,7 +26,8 @@ const CITATY = [
 
 export function TestimonialsSection() {
   return (
-    <section className="px-5 pb-20">
+    <section className="pb-20">
+      <div className="max-w-6xl mx-auto px-5 md:px-8">
       <motion.div
         initial={{ opacity: 0, y: 30 }}
         whileInView={{ opacity: 1, y: 0 }}
@@ -44,7 +45,7 @@ export function TestimonialsSection() {
         </h2>
       </motion.div>
 
-      <div className="flex flex-col gap-5">
+      <div className="flex flex-col gap-5 md:grid md:grid-cols-3">
         {CITATY.map((c, i) => (
           <motion.div
             key={c.meno}
@@ -81,6 +82,7 @@ export function TestimonialsSection() {
       <p className="text-[#6F2380]/30 text-[11px] text-center mt-6 leading-relaxed px-2">
         Príbehy sú ilustračné. Skutočné referencie budú doplnené po spustení platformy.
       </p>
+      </div>
     </section>
   );
 }

@@ -17,7 +17,8 @@ const BENEFITY = [
 
 export function CennikSection() {
   return (
-    <section className="px-5 pb-20">
+    <section className="pb-20">
+      <div className="max-w-6xl mx-auto px-5 md:px-8">
       <motion.div
         initial={{ opacity: 0, y: 30 }}
         whileInView={{ opacity: 1, y: 0 }}
@@ -36,7 +37,7 @@ export function CennikSection() {
         <p className="text-[#6F2380]/55 text-base">Bez záväzkov. Zrušiť môžeš kedykoľvek.</p>
       </motion.div>
 
-      <div className="flex flex-col gap-4">
+      <div className="flex flex-col gap-4 md:flex-row md:items-stretch">
         {/* Ročné — highlighted */}
         <motion.div
           initial={{ opacity: 0, y: 24 }}
@@ -128,6 +129,7 @@ export function CennikSection() {
         Záujem o trvalý príkaz? Napíš nám na{" "}
         <a href="mailto:office@nierakovine.sk" className="underline">office@nierakovine.sk</a>.
       </p>
+      </div>
     </section>
   );
 }

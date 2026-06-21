@@ -176,7 +176,8 @@ const ICONS = { library: LibraryIcon, podcasts: PodcastIcon, events: EventsIcon,
 
 export function FeatureSection() {
   return (
-    <section className="px-5 pb-20">
+    <section className="pb-20">
+      <div className="max-w-6xl mx-auto px-5 md:px-8">
       {/* Nadpis + podnadpis */}
       <motion.h2
         className="text-[2.2rem] font-black text-[#6F2380] leading-[1.1] mb-4 text-center"
@@ -199,7 +200,7 @@ export function FeatureSection() {
       </motion.p>
 
       {/* 4 položky */}
-      <div className="flex flex-col gap-16">
+      <div className="flex flex-col gap-16 md:grid md:grid-cols-2 md:gap-x-12 md:gap-y-20">
         {FEATURES.map((feature, i) => {
           const Icon = ICONS[feature.id];
           return (
@@ -228,6 +229,7 @@ export function FeatureSection() {
             </motion.div>
           );
         })}
+      </div>
       </div>
     </section>
   );

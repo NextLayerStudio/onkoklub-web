@@ -5,7 +5,7 @@ import { motion } from "framer-motion";
 
 export function FinalCTA() {
   return (
-    <section className="px-5 pb-16">
+    <section className="pb-16"><div className="max-w-6xl mx-auto px-5 md:px-8">
       <motion.div
         initial={{ opacity: 0, y: 30 }}
         whileInView={{ opacity: 1, y: 0 }}
@@ -46,6 +46,7 @@ export function FinalCTA() {
           </Link>
         </div>
       </motion.div>
+      </div>
     </section>
   );
 }

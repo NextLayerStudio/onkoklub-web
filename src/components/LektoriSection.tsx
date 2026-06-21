@@ -29,7 +29,7 @@ const LEKTORI = [
 
 export function LektoriSection() {
   return (
-    <section className="px-5 pb-20">
+    <section className="pb-20"><div className="max-w-6xl mx-auto px-5 md:px-8">
       <motion.div
         initial={{ opacity: 0, y: 30 }}
         whileInView={{ opacity: 1, y: 0 }}
@@ -51,7 +51,7 @@ export function LektoriSection() {
         </p>
       </motion.div>
 
-      <div className="flex flex-col gap-6">
+      <div className="flex flex-col gap-6 md:grid md:grid-cols-3">
         {LEKTORI.map((l, i) => (
           <motion.div
             key={l.meno}
@@ -59,11 +59,11 @@ export function LektoriSection() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, margin: "-30px" }}
             transition={{ duration: 0.5, delay: i * 0.1 }}
-            className="flex gap-4 items-start"
+            className="flex gap-4 items-start md:flex-col"
           >
             {/* Foto placeholder */}
             <div
-              className="w-20 h-20 rounded-2xl shrink-0 flex items-center justify-center"
+              className="w-20 h-20 rounded-2xl shrink-0 flex items-center justify-center md:w-full md:h-48 md:rounded-3xl"
               style={{ backgroundColor: l.accent + "25" }}
             >
               {/* [IMG] profilová fotka */}
@@ -87,6 +87,7 @@ export function LektoriSection() {
         A ďalší odborníci, ktorí sa k OnkoKlubu pridávajú — lekári, fyzioterapeuti,
         psychológovia, nutričné poradkyne a ďalší.
       </p>
+      </div>
     </section>
   );
 }

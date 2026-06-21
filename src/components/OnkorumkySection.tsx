@@ -48,7 +48,7 @@ const SAMPLE_POSTS = [
 
 export function OnkorumkySection() {
   return (
-    <section className="px-5 pb-20">
+    <section className="pb-20"><div className="max-w-6xl mx-auto px-5 md:px-8">
       {/* Nadpis */}
       <motion.div
         initial={{ opacity: 0, y: 30 }}
@@ -223,6 +223,7 @@ export function OnkorumkySection() {
           Vstúpiť do komunity
         </Link>
       </motion.div>
+      </div>
     </section>
   );
 }

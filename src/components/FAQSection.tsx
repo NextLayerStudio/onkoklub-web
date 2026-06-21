@@ -43,7 +43,7 @@ export function FAQSection() {
   const [open, setOpen] = useState<number | null>(null);
 
   return (
-    <section className="px-5 pb-20">
+    <section className="pb-20"><div className="max-w-6xl mx-auto px-5 md:px-8">
       <motion.div
         initial={{ opacity: 0, y: 30 }}
         whileInView={{ opacity: 1, y: 0 }}
@@ -104,6 +104,7 @@ export function FAQSection() {
             </AnimatePresence>
           </motion.div>
         ))}
+      </div>
       </div>
     </section>
   );

@@ -32,12 +32,12 @@ export default function Home() {
 
         <Link
           href="/register"
-          className="block w-full rounded-full bg-[#FDA4C7] text-white text-xl font-black py-5 text-center mb-4"
+          className="inline-block rounded-full bg-[#FDA4C7] text-white text-base font-black px-8 py-4 mb-4"
         >
           Chcem sa pripojiť
         </Link>
 
-        <p className="text-[#6F2380]/40 text-[13px] text-center">
+        <p className="text-[#6F2380]/40 text-[13px]">
           Členstvo od 5 € / mesiac · prvý mesiac môžeš vyskúšať a kedykoľvek odísť.
         </p>
       </section>

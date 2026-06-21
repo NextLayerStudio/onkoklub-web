@@ -7,7 +7,7 @@ const ease = [0.22, 1, 0.36, 1] as const;
 export function NieSiVTomSamSection() {
   return (
     <section className="pb-16">
-      <div className="max-w-6xl mx-auto px-5 md:px-8">
+      <div className="max-w-6xl mx-auto px-5 md:px-8 md:max-w-4xl">
         <div className="md:grid md:grid-cols-2 md:gap-16 md:items-center">
           {/* Text */}
           <motion.div

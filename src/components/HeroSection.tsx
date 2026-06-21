@@ -10,7 +10,7 @@ const fadeUp = { hidden: { opacity: 0, y: 28 }, show: { opacity: 1, y: 0, transi
 export function HeroSection() {
   return (
     <>
-      <section className="pt-24 md:pt-32 pb-10 relative overflow-hidden">
+      <section className="pt-24 md:pt-32 pb-10 md:pb-24 relative overflow-hidden">
         <div className="max-w-6xl mx-auto px-5 md:px-8">
           {/* Blobs */}
           <motion.div aria-hidden animate={{ x: [0,18,0], y: [0,-14,0] }} transition={{ duration: 9, repeat: Infinity, ease: "easeInOut" }}

@@ -135,6 +135,7 @@ export function EventsSection() {
       </div>
 
       {/* Kontaktný formulár */}
+      <div className="md:max-w-xl">
       <motion.div
         initial={{ opacity: 0, y: 40 }}
         whileInView={{ opacity: 1, y: 0 }}
@@ -263,6 +264,7 @@ export function EventsSection() {
           )}
         </AnimatePresence>
       </motion.div>
+      </div>
       </div>
     </section>
   );

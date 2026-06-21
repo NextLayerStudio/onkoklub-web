@@ -37,7 +37,7 @@ export function CennikSection() {
         <p className="text-[#6F2380]/55 text-base">Bez záväzkov. Zrušiť môžeš kedykoľvek.</p>
       </motion.div>
 
-      <div className="flex flex-col gap-4 md:flex-row md:items-stretch">
+      <div className="flex flex-col gap-4 md:flex-row md:items-stretch md:max-w-2xl md:mx-auto">
         {/* Ročné — highlighted */}
         <motion.div
           initial={{ opacity: 0, y: 24 }}

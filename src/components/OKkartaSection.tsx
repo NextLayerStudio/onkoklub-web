@@ -68,7 +68,7 @@ export function OKkartaSection() {
         whileInView={{ opacity: 1, y: 0, rotate: -2 }}
         viewport={{ once: true, margin: "-40px" }}
         transition={{ duration: 0.6 }}
-        className="mb-14"
+        className="mb-14 md:max-w-xs"
         style={{ rotate: "-2deg" }}
       >
         <div

@@ -79,7 +79,7 @@ export function Navbar() {
                 <Link
                   href={link.href}
                   onClick={close}
-                  className="flex items-center px-4 py-3.5 rounded-2xl text-sm font-semibold text-white hover:bg-white/15 transition-colors"
+                  className="flex items-center px-4 py-4 rounded-2xl text-lg font-black text-white hover:bg-white/15 transition-colors"
                 >
                   {link.label}
                 </Link>

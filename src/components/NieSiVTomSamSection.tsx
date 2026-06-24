@@ -50,7 +50,7 @@ export function NieSiVTomSamSection() {
             transition={{ duration: 0.7, ease }}
             className="order-first md:order-last"
           >
-            <div className="relative" style={{ height: "420px" }}>
+            <div className="relative mt-6 mb-10 md:mt-0 md:mb-0" style={{ height: "420px" }}>
               <motion.div
                 animate={{ y: [0,-8,0], rotate: [-8,-7,-8] }}
                 transition={{ duration: 5.5, repeat: Infinity, ease: "easeInOut" }}

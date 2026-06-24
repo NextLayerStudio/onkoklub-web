@@ -69,7 +69,7 @@ export function HeroSection() {
                   animate={{ y: [0,-8,0] }}
                   transition={{ duration: 5, repeat: Infinity, ease: "easeInOut" }}
                   className="absolute rounded-[2rem] overflow-hidden"
-                  style={{ inset: "5%" }}
+                  style={{ inset: "5%", rotate: "-4deg" }}
                 >
                   <Image
                     src="/images/hero-komunita.jpg"

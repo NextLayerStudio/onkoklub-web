@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import { motion } from "framer-motion";
 
 const ease = [0.22, 1, 0.36, 1] as const;
@@ -49,19 +50,33 @@ export function NieSiVTomSamSection() {
             transition={{ duration: 0.7, ease }}
             className="order-first md:order-last"
           >
-            <div className="relative" style={{ height: "320px" }}>
+            <div className="relative" style={{ height: "420px" }}>
               <motion.div
                 animate={{ y: [0,-8,0], rotate: [-8,-7,-8] }}
                 transition={{ duration: 5.5, repeat: Infinity, ease: "easeInOut" }}
-                className="absolute top-0 left-0 w-[70%] rounded-[1.6rem] bg-[#6F2380]/25"
+                className="absolute top-0 left-0 w-[84%] rounded-[1.6rem] overflow-hidden"
                 style={{ aspectRatio: "4/3", transformOrigin: "top left" }}
-              />
+              >
+                <Image
+                  src="/images/niesivtomsam-2.jpg"
+                  alt="Skupinová diskusia OnkoKlub"
+                  fill
+                  className="object-cover"
+                />
+              </motion.div>
               <motion.div
                 animate={{ y: [0,8,0], rotate: [6,7,6] }}
                 transition={{ duration: 6.5, repeat: Infinity, ease: "easeInOut", delay: 1 }}
-                className="absolute bottom-0 right-0 w-[70%] rounded-[1.6rem] bg-[#FDA4C7]/30"
+                className="absolute bottom-0 right-0 w-[84%] rounded-[1.6rem] overflow-hidden"
                 style={{ aspectRatio: "4/3", transformOrigin: "bottom right" }}
-              />
+              >
+                <Image
+                  src="/images/niesivtomsam-1.jpg"
+                  alt="Joga OnkoKlub"
+                  fill
+                  className="object-cover"
+                />
+              </motion.div>
             </div>
           </motion.div>
         </div>

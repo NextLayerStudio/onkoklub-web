@@ -67,8 +67,8 @@ export function NieSiVTomSamSection() {
               <motion.div
                 animate={{ y: [0,8,0], rotate: [6,7,6] }}
                 transition={{ duration: 6.5, repeat: Infinity, ease: "easeInOut", delay: 1 }}
-                className="absolute bottom-0 right-0 w-[84%] rounded-[1.6rem] overflow-hidden"
-                style={{ aspectRatio: "4/3", transformOrigin: "bottom right" }}
+                className="absolute bottom-0 w-[84%] rounded-[1.6rem] overflow-hidden"
+                style={{ aspectRatio: "4/3", transformOrigin: "bottom right", right: "-12%" }}
               >
                 <Image
                   src="/images/niesivtomsam-1.jpg"

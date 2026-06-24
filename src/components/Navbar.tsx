@@ -3,6 +3,7 @@
 import { useState } from "react";
 import { Menu, X } from "lucide-react";
 import Link from "next/link";
+import Image from "next/image";
 
 const NAV_LINKS = [
   { label: "Čo získaš",            href: "/co-ziskas" },
@@ -20,8 +21,8 @@ export function Navbar() {
     <>
       <header className="fixed top-0 left-0 right-0 z-50 bg-[#FFF3F9]/90 backdrop-blur-md border-b border-[#FDA4C7]/10">
         <div className="max-w-6xl mx-auto px-5 md:px-8 flex items-center justify-between py-3.5">
-          <Link href="/" className="text-[#6F2380] font-black text-lg tracking-tight shrink-0">
-            ONKO<span className="text-[#FDA4C7]">KLUB</span>
+          <Link href="/" className="shrink-0">
+            <Image src="/images/logo-horizontal.png" alt="OnkoKlub" width={140} height={48} className="h-9 w-auto" priority />
           </Link>
 
           {/* Desktop nav */}
@@ -73,9 +74,7 @@ export function Navbar() {
         style={{ paddingBottom: "max(1.5rem, env(safe-area-inset-bottom))" }}
       >
         <div className="flex items-center justify-between px-5 pt-8 pb-6">
-          <span className="text-white font-black text-xl tracking-tight">
-            ONKO<span className="text-white/60">KLUB</span>
-          </span>
+          <Image src="/images/logo-horizontal.png" alt="OnkoKlub" width={120} height={40} className="h-8 w-auto brightness-0 invert" />
           <button
             onClick={close}
             aria-label="Zatvoriť menu"

@@ -1,6 +1,7 @@
 "use client";
 
 import Link from "next/link";
+import Image from "next/image";
 import { motion } from "framer-motion";
 
 const ease = [0.22, 1, 0.36, 1] as const;
@@ -53,14 +54,32 @@ export function HeroSection() {
               initial={{ opacity: 0, x: 40 }}
               animate={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.8, delay: 0.4, ease }}
-              className="mt-10 md:mt-0"
+              className="mt-10 md:mt-0 flex justify-center"
             >
-              <motion.div
-                animate={{ y: [0,-8,0] }}
-                transition={{ duration: 5, repeat: Infinity, ease: "easeInOut" }}
-                className="w-full aspect-[4/3] rounded-[2rem] bg-[#6F2380]/25"
-                style={{ rotate: "-3deg" }}
-              />
+              <div className="relative w-full max-w-[340px] md:max-w-none" style={{ aspectRatio: "3/4" }}>
+                {/* Pozadie — fialový štvorec, otočený */}
+                <motion.div
+                  animate={{ y: [0,-8,0] }}
+                  transition={{ duration: 5, repeat: Infinity, ease: "easeInOut" }}
+                  className="absolute inset-0 rounded-[2rem] bg-[#6F2380]/25"
+                  style={{ rotate: "-4deg" }}
+                />
+                {/* Fotka — o niečo menšia, na vrchu */}
+                <motion.div
+                  animate={{ y: [0,-8,0] }}
+                  transition={{ duration: 5, repeat: Infinity, ease: "easeInOut" }}
+                  className="absolute rounded-[2rem] overflow-hidden"
+                  style={{ inset: "5%" }}
+                >
+                  <Image
+                    src="/images/hero-komunita.jpg"
+                    alt="Komunita OnkoKlub — ženy sa objímajú"
+                    fill
+                    className="object-cover"
+                    priority
+                  />
+                </motion.div>
+              </div>
             </motion.div>
           </div>
         </div>
